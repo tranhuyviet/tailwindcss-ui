@@ -7,10 +7,10 @@ const DestinationItem = ({ destination }) => {
             <img
                 src={destination.imageUrl}
                 alt={destination.imageAlt}
-                className='col-span-1 sm:col-span-1 md:col-span-1 h-full object-cover object-center'
+                className='col-span-1 sm:col-span-1 md:col-span-1 object-cover object-center w-32 h-32'
             />
             <div className='col-span-2 p-4 sm:col-span-3 md:col-span-2'>
-                <h1 className='text-lg font-semibold text-gray-800'>
+                <h1 className='text-lg font-semibold text-gray-800 '>
                     {destination.city}
                 </h1>
                 <p className='text-md text-gray-500'>{`$${destination.averagePrice} / night average`}</p>
