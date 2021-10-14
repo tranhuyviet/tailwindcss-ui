@@ -1,6 +1,9 @@
 import Head from 'next/head';
+import DestinationList from '../components/DestinationList';
+import data from '../mockData';
 
-export default function Home() {
+export default function Home({ destinations }) {
+    console.log('home ', destinations);
     return (
         <div>
             <Head>
@@ -9,9 +12,9 @@ export default function Home() {
                 <link rel='icon' href='/favicon.ico' />
             </Head>
 
-            <main className='min-h-screen bg-gray-300'>
+            <main className='min-h-screen bg-gray-300 '>
                 <div className='w-full lg:grid lg:grid-cols-2 bg-gray-300 2xl:grid-cols-5'>
-                    <div className='px-8 py-12 sm:max-w-lg mx-auto lg:px-12 lg:py-24 lg:max-w-full bg-gray-100 xl:mr-0 2xl:col-span-2'>
+                    <div className='px-8 py-12 max-w-full mx-auto lg:px-12 lg:py-24 lg:max-w-full bg-gray-100 xl:mr-0 2xl:col-span-2'>
                         <img
                             src='/images/logo.svg'
                             alt='logo'
@@ -51,7 +54,16 @@ export default function Home() {
                         />
                     </div>
                 </div>
+                <DestinationList destinations={destinations} />
             </main>
         </div>
     );
+}
+
+export async function getStaticProps() {
+    return {
+        props: {
+            destinations: data,
+        },
+    };
 }
